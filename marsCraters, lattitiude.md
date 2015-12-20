@@ -1,5 +1,5 @@
 ### Subset, Non-Empty MORPHOLOGY_EJECTA_1
-####Latitude, Aggregated Frequency Count: 
+#### Latitude, Aggregated Frequency Count: 
 -86.728778       2
 -84.215861       9
 -81.871722      37
@@ -76,7 +76,7 @@ Name: LATITUDE_CIRCLE_IMAGE, dtype: int64
 
 
 ###Subset, Non-Empty MORPHOLOGY_EJECTA_1
-####Latitude, Aggregated Frequency Percent: 
+#### Latitude, Aggregated Frequency Percent: 
 -86.728778   0.000045
 -84.215861   0.000202
 -81.871722   0.000829
