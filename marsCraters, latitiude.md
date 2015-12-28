@@ -77,7 +77,7 @@
 |79.873861 |       9 |  
   
 Name: LATITUDE_CIRCLE_IMAGE, dtype: int64  
-#------------------------------------------#  
+  
 #### Subset, Non-Empty MORPHOLOGY_EJECTA_1  
 ##### Latitude, Aggregated Frequency Percent:  
   
