@@ -249,5 +249,6 @@ SLErS    | 0.000022
 Name: MORPHOLOGY_EJECTA_1, dtype: int64  
   
 #### Summary, Subset, Non-Empty MORPHOLOGY_EJECTA_1  
+Number of Observations with non-empty Ejecta Morphology 44625  
 Crater Depth Rounded, Number of Unique Values:  36  
 Ejecta Morphology 1 Classification Aggregated, Number of Unique Values:  31  

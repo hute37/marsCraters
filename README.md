@@ -14,3 +14,7 @@ This repo is dedicated to the Data Management and Visualization course offered b
 5. *marsCraters, managed frequencies*: Python output (cleaned with markdown) from *marsPython2.py*.
 
 6. *marsPython3.py*: program file for Python.  Revised code includes relevant variables, data management decisions, and graphical elements.  Excludes most frequency tables.  See *marsPython2.py* for those. 
+
+7. Univariate graphs include: *craterDepth.png*, *ejectaMorphology.png*, and *latitude.png*.
+
+8. Bivariate graphs are also included, one for each relevant variable pair.
