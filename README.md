@@ -3,11 +3,11 @@ This repo is dedicated to the Data Management and Visualization course offered b
 
 ### Document Index:
 
-1. *frequencies 1*: SAS output.  
-
 2. *marsPython.py* and *marsSAS.sas*: program files for Python and SAS.  Programs are not identical.   
 
 3. *latitude*: Python output, latitude frequency tables.   
+
+1. *frequencies 1*: SAS output.  
 
 5. *frequencies 2*: Python output (cleaned with markdown). 
 
