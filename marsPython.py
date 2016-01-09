@@ -1,223 +1,161 @@
 # Craters on Mars
 
-## 1. Load packages.
+## 1. Set-up. 
+
+### Load packages. 
 import pandas as pd
 import numpy as np
 import decimal
-import seaborn
+import seaborn as sb
 import matplotlib.pyplot as plt
 
-
-## 2. Import and set-up data.
+### Import data.
 data=pd.read_csv("marscrater_pds.csv", low_memory=False)
 
 ### Bug fix for display formats. 
 pd.set_option('display.float_format', lambda x:'%f'%x)
 
-### Convert relevant data to numeric values. 
-data['DIAM_CIRCLE_IMAGE']=pd.to_numeric(data['DIAM_CIRCLE_IMAGE'])
-data['DEPTH_RIMFLOOR_TOPOG']=pd.to_numeric(data['DEPTH_RIMFLOOR_TOPOG'])
-data['NUMBER_LAYERS']=pd.to_numeric(data['NUMBER_LAYERS'])
-
 ### Force Spyder to display full results.
 pd.set_option('display.max_rows', None)
 
+### Ensure relevant data is in numeric format. 
+data['DIAM_CIRCLE_IMAGE']=pd.to_numeric(data['DIAM_CIRCLE_IMAGE'])
+data['DEPTH_RIMFLOOR_TOPOG']=pd.to_numeric(data['DEPTH_RIMFLOOR_TOPOG'])
+data['LATITUDE_CIRCLE_IMAGE']=pd.to_numeric(data['LATITUDE_CIRCLE_IMAGE'])
+data['LONGITUDE_CIRCLE_IMAGE']=pd.to_numeric(data['LONGITUDE_CIRCLE_IMAGE'])
+data['NUMBER_LAYERS']=pd.to_numeric(data['NUMBER_LAYERS'])
 
-## 3. Summarize data.
+
+## 2. Summarize original data.
+print('Summary, Original Data.')
 
 ### Basic information.
-print('Original data set.')
 print('Number of observations: ', len(data)) 
 print('Number of variables: ', len(data.columns))
-print()
-
-### Distributions.
 
 #### Depth.
 depC=data['DEPTH_RIMFLOOR_TOPOG'].value_counts().sort_index() 
-#print('Crater Depth, Frequency Count: ')
-#print(depC)
-depP=data['DEPTH_RIMFLOOR_TOPOG'].value_counts(dropna = False, normalize = True).sort_index()
-#print('Crater Depth, Frequency Percent: ')
-#print(depP)
 print('Crater Depth, Number of Unique Values: ', len(depC))
-print()
 
-#### Ejecta Morphology.
+#### Ejecta morphology.
 me1C=data['MORPHOLOGY_EJECTA_1'].value_counts().sort_index()
-#print('Crater Ejecta Morphology 1 Classification, Frequency Count: ')
-#print(me1C)
-me1P=data.groupby('MORPHOLOGY_EJECTA_1').size()*100/me1C.sum()
-#print('Crater Ejecta Morphology 1 Classification, Frequency Percent: ')
-#print(me1P)
 print('Ejecta Morphology 1 Classification, Number of Unique Values: ', len(me1C))
+
+#### Latitiude.
+latC=data['LATITUDE_CIRCLE_IMAGE'].value_counts().sort_index()
+print('Latitude, Number of Unique Values: ', len(latC))
+
+#### Longitude.
+lonC=data['LONGITUDE_CIRCLE_IMAGE'].value_counts().sort_index()
+print('Longitude, Number of Unique Values: ', len(lonC))
 print()
 
-### Subset data and refine search.
 
-#### Only craters with non-empty MORPHOLOGY_EJECTA_1.
-subme1=data[data['MORPHOLOGY_EJECTA_1']!=" "]
-print('Number of Observations with non-empty Ejecta Morphology', len(subme1))
+## 3. Data management.
+
+### Ejecta morphology.
+
+#### Exlude craters with non-empty MORPHOLOGY_EJECTA_1.
+print('Subset, non-empty Ejecta Morphology')
+subme=data[data['MORPHOLOGY_EJECTA_1']!=" "]
+print('Number of observations: ', len(subme))
+subme_me1C=subme['MORPHOLOGY_EJECTA_1'].value_counts().sort_index()
+print('Number of Unique Values: ', len(subme_me1C))
+print()
+print(subme_me1C)
 print()
 
-subme1_depC=subme1['DEPTH_RIMFLOOR_TOPOG'].value_counts(sort=False).sort_index()
-#print('Subset, Non-Empty MORPHOLOGY_EJECTA_1')
-#print('Crater Depth, Frequency Count: ')
-#print(subme1_depC)
-subme1_depP=subme1['DEPTH_RIMFLOOR_TOPOG'].value_counts(sort=False, normalize=True)
-#print('Subset, Non-Empty MORPHOLOGY_EJECTA_1')
-#print('Crater Depth, Frequency Percent: ')
-#print(subme1_depP)
-print('Subset, Non-Empty MORPHOLOGY_EJECTA_1')
-print('Crater Depth, Number of Unique Values: ', len(subme1_depC))
-print()
-
-subme1_me1C=subme1['MORPHOLOGY_EJECTA_1'].value_counts()
-#print('Subset, Non-Empty MORPHOLOGY_EJECTA_1')
-#print('Crater Ejecta Morphology 1 Classification, Sorted Frequency Count: ')
-#print(subme1_me1C)
-subme1_me1P=subme1['MORPHOLOGY_EJECTA_1'].value_counts(normalize=True)
-#print('Subset, Non-Empty MORPHOLOGY_EJECTA_1')
-#print('Crater Ejecta Morphology 1 Classification, Sorted Frequency Percent: ')
-#print(subme1_me1P)
-print('Subset, Non-Empty MORPHOLOGY_EJECTA_1')
-print('Ejecta Morphology 1 Classification, Number of Unique Values: ', len(subme1_me1C))
-print()
-
-#### Aggregate along lattitude.
-subme1_latC=subme1['LATITUDE_CIRCLE_IMAGE'].value_counts(sort=False, bins=36)
-#print('Subset, Non-Empty MORPHOLOGY_EJECTA_1')
-#print('Latitude, Aggregated Frequency Count: ')
-#print(subme1_latC)
-#subme1_lat_p=subme1['LATITUDE_CIRCLE_IMAGE'].value_counts(sort=False, normalize=True, bins=36)
-#print('Subset, Non-Empty MORPHOLOGY_EJECTA_1')
-#print('Latitude, Aggregated Frequency Percent: ')
-#print(subme1_lat_p)
-
-#### Aggregate along longitude.
-#subme1_lon_c=subme1['LONGITUDE_CIRCLE_IMAGE'].value_counts(sort=False, bins=36)
-#print('Subset, Non-Empty MORPHOLOGY_EJECTA_1')
-#print('Longitude, Aggregated Frequency Count: ')
-#print(subme1_lon_c)
-#subme1_lon_p=subme1['LONGITUDE_CIRCLE_IMAGE'].value_counts(sort=False, normalize=True, bins=36)
-#print('Subset, Non-Empty MORPHOLOGY_EJECTA_1')
-#print('Longitude, Aggregated Frequency Percent: ')
-#print(subme1_lon_p)
-
-
-## 4. Data management.
-
-### Remove MORPHOLOGY_EJECTA_1='Rd' (approximately 60% of the non-empty sample).
-subme2=subme1[subme1['MORPHOLOGY_EJECTA_1']!="Rd"]
-print('Subset, Aggregated non-empty Ejecta Morphology != Rd')
-print('Number of Observations: ', len(subme2))
-print()
-
-### Collapse morphology catagories to first entry before the first '/'.
+#### Collapse morphology catagories to first entry before the first '/'.
+subme2=subme.copy()
+print('Subset, Aggregated non-empty Ejecta Morphology')
 subme2['MORPHOLOGY_EJECTA_1']=subme2['MORPHOLOGY_EJECTA_1'].str.replace('/\D+', '', case=False)
-
+print('Number of observations: ', len(subme2))
 subme2_me1C=subme2['MORPHOLOGY_EJECTA_1'].value_counts().sort_index()
-print('Subset, Aggregated non-empty Ejecta Morphology != Rd')
-print('Ejecta Morphology 1 Classification, Frequency Count')
+print('Number of Unique Values: ', len(subme2_me1C))
+print()
 print(subme2_me1C)
 print()
-subme2_me1P=subme2['MORPHOLOGY_EJECTA_1'].value_counts(dropna = False, normalize = True).sort_index()
-print('Subset, Aggregated non-empty Ejecta Morphology != Rd')
-print('Ejecta Morphology 1 Classification, Frequency Percent')
-print(subme2_me1P)
-#print('Ejecta Morphology 1 Classification, Number of Unique Values: ', len(subme2_me1C))
-print()
 
-### Group craters by depth, round to nearest 1/10th of kilometer. 
-subme2['DEPTH_RIMFLOOR_TOPOG']=np.around(subme2['DEPTH_RIMFLOOR_TOPOG'], decimals=1)
-
-subme2_depC=subme2['DEPTH_RIMFLOOR_TOPOG'].value_counts().sort_index() 
-print('Subset, Aggregated non-empty Ejecta Morphology != Rd')
-print('Crater Depth Rounded to Nearest 1/10th')
-print('Crater Depth, Frequency Count: ')
-print(subme2_depC)
+#### Exlude MORPHOLOGY_EJECTA_1='Rd' (approximately 60% of the non-empty sample).
+subme3=subme2.copy()
+print('Subset, Selected, Aggregated non-empty Ejecta Morphology 1 Classification')
+subme3=subme3[subme3['MORPHOLOGY_EJECTA_1']!="Rd"]
+#### Exclude classifications with frequencies < 10.
+subme3=subme3[subme3['MORPHOLOGY_EJECTA_1']!="DLEPSPd"]
+subme3=subme3[subme3['MORPHOLOGY_EJECTA_1']!="DLEPd"]
+subme3=subme3[subme3['MORPHOLOGY_EJECTA_1']!="DLERCPd"]
+subme3=subme3[subme3['MORPHOLOGY_EJECTA_1']!="DLERSRd"]
+subme3=subme3[subme3['MORPHOLOGY_EJECTA_1']!="DLSPC"]
+subme3=subme3[subme3['MORPHOLOGY_EJECTA_1']!="MLERSRd"]
+subme3=subme3[subme3['MORPHOLOGY_EJECTA_1']!="Pd"]
+subme3=subme3[subme3['MORPHOLOGY_EJECTA_1']!="RD"]
+subme3=subme3[subme3['MORPHOLOGY_EJECTA_1']!="SLEPCRd"]
+subme3=subme3[subme3['MORPHOLOGY_EJECTA_1']!="SLEPSRd"]
+subme3=subme3[subme3['MORPHOLOGY_EJECTA_1']!="SLERSRd"]
+subme3=subme3[subme3['MORPHOLOGY_EJECTA_1']!="SLErS"]
+print('Number of observations: ', len(subme3))
+subme3_me1C=subme3['MORPHOLOGY_EJECTA_1'].value_counts().sort_index()
+subme3_me1P=subme3['MORPHOLOGY_EJECTA_1'].value_counts(dropna = False, normalize = True).sort_index()
+print('Number of Unique Values: ', len(subme3_me1C))
 print()
-subme2_depP=subme2['DEPTH_RIMFLOOR_TOPOG'].value_counts(dropna = False, normalize = True).sort_index()
-print('Subset, Aggregated non-empty Ejecta Morphology != Rd')
-print('Crater Depth Rounded to Nearest 1/10th')
-print('Crater Depth, Frequency Percent: ')
-print(subme2_depP)
-#print('Crater Depth, Number of Unique Values: ', len(subme2_depC))
+print(subme3_me1C)
 print()
-
-#### Aggregate along lattitude.
-subme2_latC=subme2['LATITUDE_CIRCLE_IMAGE'].value_counts(sort=False, bins=36)
-print('Subset, Aggregated non-empty Ejecta Morphology != Rd')
-print('Latitude, Aggregated Frequency Count: ')
-print(subme2_latC)
-print()
-subme2_lat_p=subme2['LATITUDE_CIRCLE_IMAGE'].value_counts(sort=False, normalize=True, bins=36)
-print('Subset, Aggregated non-empty Ejecta Morphology != Rd')
-print('Latitude, Aggregated Frequency Percent: ')
-print(subme2_lat_p)
-print()
-
-#### Aggregate along longitude.
-#subme2_lon_c=subme2['LONGITUDE_CIRCLE_IMAGE'].value_counts(sort=False, bins=36)
-#print('Subset, Aggregated non-empty Ejecta Morphology != Rd')
-#print('Longitude, Aggregated Frequency Count: ')
-#print(subme2_lon_c)
-#subme2_lon_p=subme2['LONGITUDE_CIRCLE_IMAGE'].value_counts(sort=False, normalize=True, bins=36)
-#print('Subset, Aggregated non-empty Ejecta Morphology != Rd')
-#print('Longitude, Aggregated Frequency Percent: ')
-#print(subme2_lon_p)
-
-### Summary, subsetted & data managed.
-print('Summary, Subset, Aggregated non-empty Ejecta Morphology != Rd')
-print('Aggregated non-empty Ejecta Morphology != Rd, Number of Unique Values: ', len(subme2_me1C))
-print('Crater Depth Rounded, Number of Unique Values: ', len(subme2_depC))
+print(subme3_me1P)
 print()
 
 
-## 5. Graphing data, univariate analysis. 
+## 4. Graphing data, univariate analysis. 
+#sb.palplot(sb.cubehelix_palette(18, start=.5, rot=-.75))
+#sb.palplot(sb.color_palette("coolwarm", 18))
+#sb.palplot(sb.diverging_palette(220, 20, n=18))
+#sb.palplot(sb.color_palette("RdBu", n_colors=18))
+#sb.set_palette("BrBG", n_colors=18)
 
 ### Aggregated ejecta morphology.
-subme2['MORPHOLOGY_EJECTA_1']=subme2['MORPHOLOGY_EJECTA_1'].astype('category')
-seaborn.countplot(y='MORPHOLOGY_EJECTA_1', data=subme2)
+subme3['MORPHOLOGY_EJECTA_1']=subme3['MORPHOLOGY_EJECTA_1'].astype('category')
+sb.countplot(y='MORPHOLOGY_EJECTA_1', data=subme3)
 plt.xlabel('Count')
 plt.ylabel('Ejecta Morphology')
 plt.title('Mars Craters Ejecta Morphology Classification')
 print()
 
-### Rounded crater depth.
-seaborn.distplot(subme2['DEPTH_RIMFLOOR_TOPOG'].dropna(), kde=False)
-plt.xlabel('Mars Craters Crater Depth, Rounded to nerest 1/10th')
-plt.title('Histogram')
+### Crater depth.
+sb.distplot(subme3['DEPTH_RIMFLOOR_TOPOG'], kde=False, color='k')
+plt.xlabel('Histogram')
+plt.ylabel('Count')
+plt.title('Mars Craters Crater Depth')
 print()
 
 ### Latitude.
-seaborn.kdeplot(subme2['LATITUDE_CIRCLE_IMAGE'], shade=True)
-plt.xlabel('Mars Craters Latitude')
-plt.title('Density Plot')
+sb.distplot(subme3['LATITUDE_CIRCLE_IMAGE'], kde=False, color='k')
+plt.xlabel('Density Plot')
+plt.title('Mars Craters Latitude')
 print()
 
 
-## 6. Graphing data, bivariate analysis.
+## 5. Graphing data, bivariate analysis.
+
+### Factorplot trial...
+#sb.factorplot(x='LATITUDE_CIRCLE_IMAGE', y='DEPTH_RIMFLOOR_TOPOG', col='MORPHOLOGY_EJECTA_1', data=subme3) 
 
 ### Aggregated ejecta morphology and crater depth.
-subme2['MORPHOLOGY_EJECTA_1']=subme2['MORPHOLOGY_EJECTA_1'].astype('category')
-seaborn.boxplot(x='DEPTH_RIMFLOOR_TOPOG', y='MORPHOLOGY_EJECTA_1', data=subme2)
+sb.boxplot(x='DEPTH_RIMFLOOR_TOPOG', y='MORPHOLOGY_EJECTA_1', data=subme3)
 plt.xlabel('Crater Depth')
 plt.ylabel('Ejecta Morphology')
 plt.title('Mars Craters Crater Depth by Ejecta Morphology Classification')
 print()
 
 ### Aggregated ejecta morphologyh and latitude.
-seaborn.boxplot(x='LATITUDE_CIRCLE_IMAGE', y='MORPHOLOGY_EJECTA_1', data=subme2)
+sb.boxplot(x='LATITUDE_CIRCLE_IMAGE', y='MORPHOLOGY_EJECTA_1', data=subme3)
 plt.xlabel('Latitude')
 plt.ylabel('Ejecta Morphology')
 plt.title('Latitude by Ejecta Morphology Classification')
 print()
 
 ### Crater depth and latitude.
-seaborn.jointplot(x='LATITUDE_CIRCLE_IMAGE', y='DEPTH_RIMFLOOR_TOPOG', data=subme2)
+sb.jointplot(x='LATITUDE_CIRCLE_IMAGE', y='DEPTH_RIMFLOOR_TOPOG',kind='hex', data=subme3)
 print()
 
-### Crater depth and latitude.
-seaborn.heatmap(x='LONGITUDE_CIRCLE_IMAGE', y='LATITUDE_CIRCLE_IMAGE', data=subme2)
+### Longitude and latitude.
+sb.jointplot(x='LONGITUDE_CIRCLE_IMAGE', y='LATITUDE_CIRCLE_IMAGE', kind='hex', data=subme3)
 print()
