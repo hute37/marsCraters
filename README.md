@@ -3,18 +3,14 @@ This repo is dedicated to the Data Management and Visualization course offered b
 
 ### Document Index:
 
-1. *marsCraters selected Frequencies*: SAS output from initial univariate analysis of **DEPTH_RIMFLOOR_TOPOG** and **MORPHOLOGY_EJECTA_1**.  Includes only those records where Morphology_Ejecta_1 is non-empty.  
+1. *frequencies 1*: SAS output.  
 
-2. *marsPython.py* and *marsSAS.sas*: program files for Python and SAS.  Programs are not identical, though both produce the roughly the same results.  
+2. *marsPython.py* and *marsSAS.sas*: program files for Python and SAS.  Programs are not identical.   
 
-3. *marsCraters, Latitude*: Python output on latitude distribution.   
+3. *latitude*: Python output, latitude frequency tables.   
 
-4. *marsPython2.py*: program file for Python.  Revised code focuses on relevant variables and includes data management items.  
-
-5. *marsCraters, managed frequencies*: Python output (cleaned with markdown) from *marsPython2.py*.
-
-6. *marsPython3.py*: program file for Python.  Revised code includes relevant variables, data management decisions, and graphical elements.  Excludes most frequency tables.  See *marsPython2.py* for those. 
+5. *frequencies 2*: Python output (cleaned with markdown). 
 
 7. Univariate graphs include: *craterDepth.png*, *ejectaMorphology.png*, and *latitude.png*.
 
-8. Bivariate graphs are also included, one for each relevant variable pair.
+8. Bivariate graphs include: *depthLatitude.png*, *emDepth.png*, and *emLatitude.py*.
