@@ -1,4 +1,6 @@
-# Craters on Mars
+# Craters on Mars  
+### Ejecta Morphology and Crater Depth  
+
 
 ## 1. Set-up. 
 
@@ -22,11 +24,7 @@ pd.set_option('display.float_format', lambda x:'%f'%x)
 pd.set_option('display.max_rows', None)
 
 ### Ensure relevant data is in numeric format. 
-data['DIAM_CIRCLE_IMAGE']=pd.to_numeric(data['DIAM_CIRCLE_IMAGE'])
 data['DEPTH_RIMFLOOR_TOPOG']=pd.to_numeric(data['DEPTH_RIMFLOOR_TOPOG'])
-data['LATITUDE_CIRCLE_IMAGE']=pd.to_numeric(data['LATITUDE_CIRCLE_IMAGE'])
-data['LONGITUDE_CIRCLE_IMAGE']=pd.to_numeric(data['LONGITUDE_CIRCLE_IMAGE'])
-data['NUMBER_LAYERS']=pd.to_numeric(data['NUMBER_LAYERS'])
 
 
 ## 2. Summarize original data.
@@ -43,26 +41,13 @@ print('Crater Depth')
 print('Number of Unique Values: ', len(depC))
 depS=data['DEPTH_RIMFLOOR_TOPOG'].describe()
 print(depS)
+print()
 
 #### Ejecta morphology.
 me1C=data['MORPHOLOGY_EJECTA_1'].value_counts().sort_index()
 print('Ejecta Morphology 1 Classification')
 me1S=data['MORPHOLOGY_EJECTA_1'].describe()
 print(me1S)
-
-#### Latitude.
-latC=data['LATITUDE_CIRCLE_IMAGE'].value_counts().sort_index()
-print('Latitude')
-print('Number of Unique Values: ', len(latC))
-latS=data['LATITUDE_CIRCLE_IMAGE'].describe()
-print(latS)
-
-#### Longitude.
-lonC=data['LONGITUDE_CIRCLE_IMAGE'].value_counts().sort_index()
-print('Longitude')
-print('Number of Unique Values: ', len(lonC))
-lonS=data['LONGITUDE_CIRCLE_IMAGE'].describe()
-print(lonS)
 print()
 
 
@@ -83,7 +68,6 @@ print('Subset, Aggregated non-empty Ejecta Morphology')
 sub2['MORPHOLOGY_EJECTA_1']=sub2['MORPHOLOGY_EJECTA_1'].str.replace('/\D+', '', case=False)
 sub2_me1S=sub2['MORPHOLOGY_EJECTA_1'].describe()
 print(sub2_me1S)
-print()
 sub2_me1C=sub2['MORPHOLOGY_EJECTA_1'].value_counts().sort_index()
 print(sub2_me1C)
 print()
@@ -107,7 +91,6 @@ sub3=sub3[sub3['MORPHOLOGY_EJECTA_1']!="SLERSRd"]
 sub3=sub3[sub3['MORPHOLOGY_EJECTA_1']!="SLErS"]
 sub3_me1S=sub3['MORPHOLOGY_EJECTA_1'].describe()
 print(sub3_me1S)
-print()
 sub3_me1C=sub3['MORPHOLOGY_EJECTA_1'].value_counts().sort_index()
 print(sub3_me1C)
 print()
@@ -125,6 +108,7 @@ print(sub4S)
 sub4_me1S=sub4['MORPHOLOGY_EJECTA_1'].describe()
 print(sub4_me1S)
 print()
+
 
 ## 4. Graphing data, univariate analysis. 
 sb.set(style="whitegrid")
@@ -147,13 +131,6 @@ plt.title('Mars Craters Crater Depth')
 plt.show()
 print()
 
-### Latitude.
-sb.distplot(sub4['LATITUDE_CIRCLE_IMAGE'], kde=True, color="y")
-plt.xlabel('Density Plot')
-plt.title('Mars Craters Latitude')
-plt.show()
-print()
-
 
 ## 5. Graphing data, bivariate analysis.
     
@@ -162,24 +139,6 @@ sb.boxplot(x='DEPTH_RIMFLOOR_TOPOG', y='MORPHOLOGY_EJECTA_1', data=sub4)
 plt.xlabel('Crater Depth')
 plt.ylabel('Ejecta Morphology')
 plt.title('Mars Craters Crater Depth by Ejecta Morphology Classification')
-plt.show()
-print()
-
-### Aggregated ejecta morphology and latitude.
-sb.boxplot(x='LATITUDE_CIRCLE_IMAGE', y='MORPHOLOGY_EJECTA_1', data=sub4)
-plt.xlabel('Latitude')
-plt.ylabel('Ejecta Morphology')
-plt.title('Latitude by Ejecta Morphology Classification')
-plt.show()
-print()
-
-### Crater depth and latitude.
-sb.jointplot(x='LATITUDE_CIRCLE_IMAGE', y='DEPTH_RIMFLOOR_TOPOG', kind='hex', data=sub4)
-plt.show()
-print()
-
-### Longitude and latitude.
-sb.jointplot(x='LONGITUDE_CIRCLE_IMAGE', y='LATITUDE_CIRCLE_IMAGE', kind='hex', data=sub4)
 plt.show()
 print()
 
@@ -210,27 +169,4 @@ print()
 emDMc=multi.MultiComparison(subemD['DEPTH_RIMFLOOR_TOPOG'], subemD['MORPHOLOGY_EJECTA_1'])
 emDMR=emDMc.tukeyhsd()
 print(emDMR.summary())
-print()
-
-#### Aggregated ejecta morphology and latitude.
-subemLa=sub4[['LATITUDE_CIRCLE_IMAGE', 'MORPHOLOGY_EJECTA_1']].dropna()
-
-emLaOls=smf.ols(formula='LATITUDE_CIRCLE_IMAGE ~ MORPHOLOGY_EJECTA_1', data=subemLa)
-emLaRe = emLaOls.fit()
-print (emLaRe.summary())
-
-print('Crater Depth by Aggregated Ejecta Morphology')
-emLaM=subemLa.groupby('MORPHOLOGY_EJECTA_1').mean()
-print('Mean')
-print(emLaM)
-print()
-emLaS=subemLa.groupby('MORPHOLOGY_EJECTA_1').std()
-print('Standard Deviation')
-print(emLaS)
-print()
-
-##### Post hoc analysis using Tukey's Honestly Significant Difference Test.
-emLaMc=multi.MultiComparison(subemLa['LATITUDE_CIRCLE_IMAGE'], subemLa['MORPHOLOGY_EJECTA_1'])
-emLaMR=emLaMc.tukeyhsd()
-print(emLaMR.summary())
 print()

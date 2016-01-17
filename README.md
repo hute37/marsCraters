@@ -1,16 +1,19 @@
-# marsCraters
+ marsCraters
 This repo is dedicated to the Data Management and Visualization course offered by Wesleyan University though Coursera.
 
 ### Document Index:
 
-2. *marsPython.py* and *marsSAS.sas*: program files for Python and SAS.  Programs are not identical.   
+1. *marsPython.py* and *marsSAS.sas*: program files for Python and SAS.  Programs are not identical.   
 
-3. *latitude*: Python output, latitude frequency tables.   
+2. *latitude*: Python output, latitude frequency tables.   
 
-1. *frequencies 1*: SAS output.  
+3. *frequencies 1*: SAS output.  
 
-5. *frequencies 2*: Python output (cleaned with markdown). 
+4. *frequencies 2*: Python output (cleaned with markdown). 
 
-7. Univariate graphs include: *craterDepth.png*, *ejectaMorphology.png*, and *latitude.png*.
+5. Univariate graphs include: *craterDepth.png*, *ejectaMorphology.png*, and *latitude.png*.
 
-8. Bivariate graphs include: *depthLatitude.png*, *emDepth.png*, and *emLatitude.py*.
+6. Bivariate graphs include: *depthLatitude.png*, *emDepth.png*, and *emLatitude.py*.
+
+7. *marsEmD.py*: program file for Python containing only code related to crated ejecta morphology and depth.
+
