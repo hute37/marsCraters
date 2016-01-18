@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #### OLS Regression Results  
+=======
+### OLS Regression Results  
+>>>>>>> origin/master
 |Item               |Value                    |Item                  |Value            |  
 |:------------------|------------------------:|:---------------------|----------------:|  
 |Dep. Variable:     |    DEPTH_RIMFLOOR_TOPOG |  R-squared:          |            0.260|  
@@ -41,7 +45,11 @@
 Warnings:  
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.  
   
+<<<<<<< HEAD
 #### Crater Depth by Aggregated Ejecta Morphology  
+=======
+### Crater Depth by Aggregated Ejecta Morphology  
+>>>>>>> origin/master
 ##### Mean  
 |MORPHOLOGY_EJECTA_1 | DEPTH_RIMFLOOR_TOPOG|  
 |--------------------|---------------------|  
@@ -86,7 +94,11 @@ Warnings:
 |SLERS               |             0.324965|  
 |SLERSPd             |             0.087015|  
   
+<<<<<<< HEAD
 #### Multiple Comparison of Means - Tukey HSD,FWER=0.05  
+=======
+### Multiple Comparison of Means - Tukey HSD,FWER=0.05  
+>>>>>>> origin/master
 | group1 | group2 | meandiff | lower | upper | reject|  
 |--------|--------|----------|-------|-------|-------|  
 | DLEPC  |DLEPCPd |-0.2229   |-0.5682| 0.1225| False |  
