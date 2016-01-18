@@ -1,90 +1,90 @@
 #### OLS Regression Results  
-|Item               |Value                    |Item                  |Value            |  
-|:------------------|------------------------:|:---------------------|----------------:|  
-|Dep. Variable:     |    DEPTH_RIMFLOOR_TOPOG |  R-squared:          |            0.260|  
-|Model:             |                     OLS |  Adj. R-squared:     |            0.259|  
-|Method:            |           Least Squares |  F-statistic:        |            362.0|  
-|Date:              |        Sat, 16 Jan 2016 |  Prob (F-statistic): |             0.00|  
-|Time:              |                20:26:05 |  Log-Likelihood:     |          -4326.5|  
-|No. Observations:  |                   17527 |  AIC:                |            8689.|  
-|Df Residuals:      |                   17509 |  BIC:                |            8829.|  
-|Df Model:          |                      17 |                      |                 |  
-|Covariance Type:   |               nonrobust |                      |                 |  
+| Item              | Value                | Item                | Value       |  
+|:------------------|---------------------:|:--------------------|------------:|  
+| Dep. Variable:    | DEPTH_RIMFLOOR_TOPOG | R-squared:          |       0.260 |  
+| Model:            |                  OLS | Adj. R-squared:     |       0.259 |  
+| Method:           |        Least Squares | F-statistic:        |   362.0     |  
+| Date:             |     Sat, 16 Jan 2016 | Prob (F-statistic): |     0.00    |  
+| Time:             |             20:26:05 | Log-Likelihood:     | -4326.5     |  
+| No. Observations: |                17527 | AIC:                |  8689.      |  
+| Df Residuals:     |                17509 | BIC:                |  8829.      |  
+| Df Model:         |                   17 |                     |             |  
+| Covariance Type:  |            nonrobust |                     |             |  
   
-|Item                              | coef   |std err|   t   | P>abs(t)| [95.0% Conf. Int.] |  
-|:---------------------------------|:------:|:-----:|:-----:|:-------:|-------------------:|  
-|Intercept                         | 0.2259 | 0.014 |16.218 | 0.000   | 0.199,  0.253|  
-|C(MORPHOLOGY_EJECTA_1)[T.DLEPCPd] |-0.2229 | 0.099 |-2.252 | 0.024   |-0.417, -0.029|  
-|C(MORPHOLOGY_EJECTA_1)[T.DLEPS]   | 0.1643 | 0.019 | 8.833 | 0.000   | 0.128,  0.201|  
-|C(MORPHOLOGY_EJECTA_1)[T.DLERC]   |-0.0266 | 0.021 |-1.266 | 0.206   |-0.068,  0.015|  
-|C(MORPHOLOGY_EJECTA_1)[T.DLERS]   | 0.5243 | 0.016 |31.830 | 0.000   | 0.492,  0.557|  
-|C(MORPHOLOGY_EJECTA_1)[T.MLEPC]   | 0.1555 | 0.068 | 2.303 | 0.021   | 0.023,  0.288|  
-|C(MORPHOLOGY_EJECTA_1)[T.MLEPS]   | 0.4646 | 0.049 | 9.430 | 0.000   | 0.368,  0.561|  
-|C(MORPHOLOGY_EJECTA_1)[T.MLERC]   | 0.1879 | 0.065 | 2.901 | 0.004   | 0.061,  0.315|  
-|C(MORPHOLOGY_EJECTA_1)[T.MLERS]   | 0.8630 | 0.020 |43.657 | 0.000   | 0.824,  0.902|  
-|C(MORPHOLOGY_EJECTA_1)[T.SLEPC]   | 0.0195 | 0.015 | 1.285 | 0.199   |-0.010,  0.049|  
-|C(MORPHOLOGY_EJECTA_1)[T.SLEPCPd] |-0.2164 | 0.038 |-5.636 | 0.000   |-0.292, -0.141|  
-|C(MORPHOLOGY_EJECTA_1)[T.SLEPS]   | 0.1805 | 0.015 |12.359 | 0.000   | 0.152,  0.209|  
-|C(MORPHOLOGY_EJECTA_1)[T.SLEPSPd] |-0.1738 | 0.045 |-3.847 | 0.000   |-0.262, -0.085|  
-|C(MORPHOLOGY_EJECTA_1)[T.SLEPd]   | 0.2793 | 0.049 | 5.730 | 0.000   | 0.184,  0.375|  
-|C(MORPHOLOGY_EJECTA_1)[T.SLERC]   | 0.0481 | 0.016 | 2.935 | 0.003   | 0.016,  0.080|  
-|C(MORPHOLOGY_EJECTA_1)[T.SLERCPd] |-0.2189 | 0.099 |-2.211 | 0.027   |-0.413, -0.025|  
-|C(MORPHOLOGY_EJECTA_1)[T.SLERS]   | 0.3121 | 0.015 |21.398 | 0.000   | 0.284,  0.341|  
-|C(MORPHOLOGY_EJECTA_1)[T.SLERSPd] |-0.1796 | 0.079 |-2.282 | 0.022   |-0.334, -0.025|  
+| Item                              | coef   |std err|   t   | P>abs(t)| [95.0% Conf. Int.] |  
+|:----------------------------------|:------:|:-----:|:-----:|:-------:|-------------------:|  
+| Intercept                         | 0.2259 | 0.014 |16.218 | 0.000   | 0.199,  0.253|  
+| C(MORPHOLOGY_EJECTA_1)[T.DLEPCPd] |-0.2229 | 0.099 |-2.252 | 0.024   |-0.417, -0.029|  
+| C(MORPHOLOGY_EJECTA_1)[T.DLEPS]   | 0.1643 | 0.019 | 8.833 | 0.000   | 0.128,  0.201|  
+| C(MORPHOLOGY_EJECTA_1)[T.DLERC]   |-0.0266 | 0.021 |-1.266 | 0.206   |-0.068,  0.015|  
+| C(MORPHOLOGY_EJECTA_1)[T.DLERS]   | 0.5243 | 0.016 |31.830 | 0.000   | 0.492,  0.557|  
+| C(MORPHOLOGY_EJECTA_1)[T.MLEPC]   | 0.1555 | 0.068 | 2.303 | 0.021   | 0.023,  0.288|  
+| C(MORPHOLOGY_EJECTA_1)[T.MLEPS]   | 0.4646 | 0.049 | 9.430 | 0.000   | 0.368,  0.561|  
+| C(MORPHOLOGY_EJECTA_1)[T.MLERC]   | 0.1879 | 0.065 | 2.901 | 0.004   | 0.061,  0.315|  
+| C(MORPHOLOGY_EJECTA_1)[T.MLERS]   | 0.8630 | 0.020 |43.657 | 0.000   | 0.824,  0.902|  
+| C(MORPHOLOGY_EJECTA_1)[T.SLEPC]   | 0.0195 | 0.015 | 1.285 | 0.199   |-0.010,  0.049|  
+| C(MORPHOLOGY_EJECTA_1)[T.SLEPCPd] |-0.2164 | 0.038 |-5.636 | 0.000   |-0.292, -0.141|  
+| C(MORPHOLOGY_EJECTA_1)[T.SLEPS]   | 0.1805 | 0.015 |12.359 | 0.000   | 0.152,  0.209|  
+| C(MORPHOLOGY_EJECTA_1)[T.SLEPSPd] |-0.1738 | 0.045 |-3.847 | 0.000   |-0.262, -0.085|  
+| C(MORPHOLOGY_EJECTA_1)[T.SLEPd]   | 0.2793 | 0.049 | 5.730 | 0.000   | 0.184,  0.375|  
+| C(MORPHOLOGY_EJECTA_1)[T.SLERC]   | 0.0481 | 0.016 | 2.935 | 0.003   | 0.016,  0.080|  
+| C(MORPHOLOGY_EJECTA_1)[T.SLERCPd] |-0.2189 | 0.099 |-2.211 | 0.027   |-0.413, -0.025|  
+| C(MORPHOLOGY_EJECTA_1)[T.SLERS]   | 0.3121 | 0.015 |21.398 | 0.000   | 0.284,  0.341|  
+| C(MORPHOLOGY_EJECTA_1)[T.SLERSPd] |-0.1796 | 0.079 |-2.282 | 0.022   |-0.334, -0.025|  
   
-|Item               |Value              |Item               |Value                |  
-|:------------------|------------------:|:------------------|--------------------:|  
-|Omnibus:           |           702.553 |  Durbin-Watson:   |               1.081 |  
-|Prob(Omnibus):     |             0.000 |  Jarque-Bera (JB):|             903.394 |  
-|Skew:              |             0.431 |  Prob(JB):        |           6.77e-197 |  
-|Kurtosis:          |             3.703 |  Cond. No.        |                47.6 |  
+| Item          | Value   | Item              | Value       |  
+|:--------------|--------:|:------------------|------------:|  
+|Omnibus:       | 702.553 | Durbin-Watson:    |   1.081     |  
+|Prob(Omnibus): |   0.000 | Jarque-Bera (JB): | 903.394     |  
+|Skew:          |   0.431 | Prob(JB):         |   6.77e-197 |  
+|Kurtosis:      |   3.703 | Cond. No.         |  47.6       |  
 Warnings:  
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.  
   
 #### Crater Depth by Aggregated Ejecta Morphology  
 ##### Mean  
-|MORPHOLOGY_EJECTA_1 | DEPTH_RIMFLOOR_TOPOG|  
-|--------------------|---------------------|  
-|DLEPC               |             0.225879|  
-|DLEPCPd             |             0.003000|  
-|DLEPS               |             0.390222|  
-|DLERC               |             0.199249|  
-|DLERS               |             0.750161|  
-|MLEPC               |             0.381364|  
-|MLEPS               |             0.690465|  
-|MLERC               |             0.413750|  
-|MLERS               |             1.088873|  
-|SLEPC               |             0.245406|  
-|SLEPCPd             |             0.009467|  
-|SLEPS               |             0.406343|  
-|SLEPSPd             |             0.052115|  
-|SLEPd               |             0.505227|  
-|SLERC               |             0.274016|  
-|SLERCPd             |             0.007000|  
-|SLERS               |             0.538012|  
-|SLERSPd             |             0.046250|  
+| MORPHOLOGY_EJECTA_1 | DEPTH_RIMFLOOR_TOPOG |  
+|---------------------|----------------------|  
+| DLEPC               |             0.225879 |  
+| DLEPCPd             |             0.003000 |  
+| DLEPS               |             0.390222 |  
+| DLERC               |             0.199249 |  
+| DLERS               |             0.750161 |  
+| MLEPC               |             0.381364 |  
+| MLEPS               |             0.690465 |  
+| MLERC               |             0.413750 |  
+| MLERS               |             1.088873 |  
+| SLEPC               |             0.245406 |  
+| SLEPCPd             |             0.009467 |  
+| SLEPS               |             0.406343 |  
+| SLEPSPd             |             0.052115 |  
+| SLEPd               |             0.505227 |  
+| SLERC               |             0.274016 |  
+| SLERCPd             |             0.007000 |  
+| SLERS               |             0.538012 |  
+| SLERSPd             |             0.046250 |  
   
 ##### Standard Deviation  
-|MORPHOLOGY_EJECTA_1 | DEPTH_RIMFLOOR_TOPOG|  
-|--------------------|---------------------|  
-|DLEPC               |             0.262318|  
-|DLEPCPd             |             0.009487|  
-|DLEPS               |             0.379797|  
-|DLERC               |             0.252662|  
-|DLERS               |             0.412736|  
-|MLEPC               |             0.367298|  
-|MLEPS               |             0.441102|  
-|MLERC               |             0.375092|  
-|MLERS               |             0.426162|  
-|SLEPC               |             0.223601|  
-|SLEPCPd             |             0.032958|  
-|SLEPS               |             0.298070|  
-|SLEPSPd             |             0.109658|  
-|SLEPd               |             0.415085|  
-|SLERC               |             0.274048|  
-|SLERCPd             |             0.011595|  
-|SLERS               |             0.324965|  
-|SLERSPd             |             0.087015|  
+| MORPHOLOGY_EJECTA_1 | DEPTH_RIMFLOOR_TOPOG |  
+|---------------------|----------------------|  
+| DLEPC               |             0.262318 |  
+| DLEPCPd             |             0.009487 |  
+| DLEPS               |             0.379797 |  
+| DLERC               |             0.252662 |  
+| DLERS               |             0.412736 |  
+| MLEPC               |             0.367298 |  
+| MLEPS               |             0.441102 |  
+| MLERC               |             0.375092 |  
+| MLERS               |             0.426162 |  
+| SLEPC               |             0.223601 |  
+| SLEPCPd             |             0.032958 |  
+| SLEPS               |             0.298070 |  
+| SLEPSPd             |             0.109658 |  
+| SLEPd               |             0.415085 |  
+| SLERC               |             0.274048 |  
+| SLERCPd             |             0.011595 |  
+| SLERS               |             0.324965 |  
+| SLERSPd             |             0.087015 |  
   
 #### Multiple Comparison of Means - Tukey HSD,FWER=0.05  
 | group1 | group2 | meandiff | lower | upper | reject|  
