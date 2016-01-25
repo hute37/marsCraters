@@ -1,0 +1,170 @@
+Cross-Tab Frequency Table, Aggregated Ejecta Morphology and Hemisphere
+MORPHOLOGY_EJECTA_1     DLEPC  DLEPCPd  DLEPS  DLERC  DLERS  MLEPC  MLEPS  \
+LATITUDE_CIRCLE_IMAGE2                                                      
+Southern                  126        0    270     55    618      4     25   
+Northern                  369       10    361    331    624     18     18   
+
+MORPHOLOGY_EJECTA_1     MLERC  MLERS  SLEPC  SLEPCPd  SLEPS  SLEPSPd  SLEPd  \
+LATITUDE_CIRCLE_IMAGE2                                                        
+Southern                    5    209   1631        7   2983        8      8   
+Northern                   19    279    970       68   2015       44     36   
+
+MORPHOLOGY_EJECTA_1     SLERC  SLERCPd  SLERS  SLERSPd  
+LATITUDE_CIRCLE_IMAGE2                                  
+Southern                  514        0   2538        4  
+Northern                  766       10   2572       12  
+
+Cross-Tab Frequency Table, Aggregated Ejecta Morphology and Hemisphere
+MORPHOLOGY_EJECTA_1       DLEPC  DLEPCPd    DLEPS    DLERC    DLERS    MLEPC  \
+LATITUDE_CIRCLE_IMAGE2                                                         
+Southern               0.254545 0.000000 0.427892 0.142487 0.497585 0.181818   
+Northern               0.745455 1.000000 0.572108 0.857513 0.502415 0.818182   
+
+MORPHOLOGY_EJECTA_1       MLEPS    MLERC    MLERS    SLEPC  SLEPCPd    SLEPS  \
+LATITUDE_CIRCLE_IMAGE2                                                         
+Southern               0.581395 0.208333 0.428279 0.627067 0.093333 0.596839   
+Northern               0.418605 0.791667 0.571721 0.372933 0.906667 0.403161   
+
+MORPHOLOGY_EJECTA_1     SLEPSPd    SLEPd    SLERC  SLERCPd    SLERS  SLERSPd  
+LATITUDE_CIRCLE_IMAGE2                                                        
+Southern               0.153846 0.181818 0.401562 0.000000 0.496673 0.250000  
+Northern               0.846154 0.818182 0.598437 1.000000 0.503327 0.750000  
+
+Aggregated Ejecta Morphology and Location
+Chi-Square, p-value, Expected Values
+(867.05015795184056, 2.2931066446389868e-173, 17, array([[  254.32047698,     5.13778741,   324.1943858 ,   198.31859417,
+          638.11319678,    11.30313231,    22.09248588,    12.33068979,
+          250.72402579,  1336.3385063 ,    38.5334056 ,  2567.86614937,
+           26.71649455,    22.60626462,   657.63678895,     5.13778741,
+         2625.4093684 ,     8.22045986],
+       [  240.67952302,     4.86221259,   306.8056142 ,   187.68140583,
+          603.88680322,    10.69686769,    20.90751412,    11.66931021,
+          237.27597421,  1264.6614937 ,    36.4665944 ,  2430.13385063,
+           25.28350545,    21.39373538,   622.36321105,     4.86221259,
+         2484.5906316 ,     7.77954014]]))
+Number of levels:  18
+Number of Comparisons:  153
+Adjusted p-value, p*:  0.00032679738562091506
+
+Selected, Aggregated non-empty Ejecta Morphology  Classification
+DLEPC       495
+DLEPCPd      10
+DLEPS       631
+DLERC       386
+DLERS      1242
+MLEPC        22
+MLEPS        43
+MLERC        24
+MLERS       488
+SLEPC      2601
+SLEPCPd      75
+SLEPS      4998
+SLEPSPd      52
+SLEPd        44
+SLERC      1280
+SLERCPd      10
+SLERS      5110
+SLERSPd      16
+dtype: int64
+DLEPC vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(105.11818830628189, 1.1506387919208644e-24, 1, array([[  235.26851026,  2428.73148974],
+       [  259.73148974,  2681.26851026]]))
+
+DLEPCPd vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(7.9621890552754886, 0.0047764611088524523, 1, array([[    4.95703125,  2533.04296875],
+       [    5.04296875,  2576.95703125]]))
+
+DLEPS vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(10.359753059523655, 0.0012879243114775685, 1, array([[  308.63055217,  2499.36944783],
+       [  322.36944783,  2610.63055217]]))
+
+DLERC vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(179.24423410772326, 7.0865776455270674e-41, 1, array([[  182.11390102,  2410.88609898],
+       [  203.88609898,  2699.11390102]]))
+
+DLERS vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(0.00067489995997297965, 0.9792742185638833, 1, array([[  617.08942065,  2538.91057935],
+       [  624.91057935,  2571.08942065]]))
+
+MLEPC vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(7.47325019110799, 0.0062622397729970407, 1, array([[   10.89711613,  2531.10288387],
+       [   11.10288387,  2578.89711613]]))
+
+MLEPS vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(0.90887481288157501, 0.34041314031759307, 1, array([[   21.38734718,  2541.61265282],
+       [   21.61265282,  2568.38734718]]))
+
+MLERC vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(6.8332171121723118, 0.0089477959493784558, 1, array([[   11.88780678,  2531.11219322],
+       [   12.11219322,  2578.88780678]]))
+
+MLERS vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(8.0665390757579871, 0.0045090158650292955, 1, array([[  239.46695248,  2507.53304752],
+       [  248.53304752,  2602.46695248]]))
+
+SLEPC vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(117.48102866669169, 2.2524428548202373e-27, 1, array([[ 1406.2467903,  2762.7532097],
+       [ 1194.7532097,  2347.2467903]]))
+
+SLEPCPd vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(46.514743088754834, 9.0931714031310851e-12, 1, array([[   36.81292189,  2508.18707811],
+       [   38.18707811,  2601.81292189]]))
+
+SLEPS vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(101.87202427197673, 5.9227081827048576e-24, 1, array([[ 2729.91274238,  2791.08725762],
+       [ 2268.08725762,  2318.91274238]]))
+
+SLEPSPd vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(22.852376198695929, 1.7493292431000753e-06, 1, array([[   25.64742348,  2520.35257652],
+       [   26.35257652,  2589.64742348]]))
+
+SLEPd vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(16.064404021379872, 6.1224125680231232e-05, 1, array([[   21.73535118,  2524.26464882],
+       [   22.26464882,  2585.73535118]]))
+
+SLERC vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(36.732214294067894, 1.3552138683060507e-09, 1, array([[  611.35524257,  2440.64475743],
+       [  668.64475743,  2669.35524257]]))
+
+SLERCPd vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(7.9621890552754886, 0.0047764611088524523, 1, array([[    4.95703125,  2533.04296875],
+       [    5.04296875,  2576.95703125]]))
+
+SLERSPd vs SLERS
+Chi-Square, p-value, Expected Values
+chi-square value, p value, expected counts
+(2.9582966541309959, 0.085437902698089277, 1, array([[ 2534.06554819,     7.93445181],
+       [ 2575.93445181,     8.06554819]]))
+
